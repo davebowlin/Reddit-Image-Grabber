@@ -6,6 +6,7 @@ import re
 import os
 import threading
 
+
 class RedditMediaDownloader(tk.Tk):
     def __init__(self):
         """Initialize the GUI for our Reddit Image Grabber. All the goodness begins here!"""
@@ -89,6 +90,7 @@ class RedditMediaDownloader(tk.Tk):
         # A thread for the download task and a flag to handle stopping it. This is on a separate thread so we can keep the GUI responding to count images, stop download, etc.
         self.download_thread = None
         self.stop_download_flag = False
+
     def start_download_thread(self):
         """Starts the download in a separate thread, 'cause we don't want our GUI to freeze."""
         self.download_thread = threading.Thread(target=self.start_download)
@@ -165,6 +167,7 @@ class RedditMediaDownloader(tk.Tk):
         self.stop_download_flag = False
         self.downloaded_label.config(fg="#FFFFFF")
         self.stop_button.config(state=tk.DISABLED)
-        
+
+
 app = RedditMediaDownloader()
 app.mainloop()
